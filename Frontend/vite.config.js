@@ -11,7 +11,7 @@ export default defineConfig(({ mode }) => {
       port: 3001,
       proxy: {
         "/api": {
-          target: env.VITE_FRONTEND_URL, // Use loaded environment variable
+          target: env.VITE_BACKEND_URL, // Use loaded environment variable
           changeOrigin: true,
         },
       },
