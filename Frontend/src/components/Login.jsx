@@ -15,13 +15,14 @@ function Login() {
   } = useForm();
 
   const onSubmit = (data) => {
+    const backendUrl = import.meta.env.VITE_BACKEND_URL;
     const userInfo = {
       email: data.email,
       password: data.password,
     };
     // console.log(userInfo);
     axios
-      .post("/api/user/login", userInfo)
+      .post(`${backendUrl}/api/user/login`, userInfo)
       .then((response) => {
         if (response.data) {
           toast.success("Login successful");

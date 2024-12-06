@@ -22,6 +22,7 @@ function Signup() {
   };
 
   const onSubmit = async (data) => {
+    const backendUrl = import.meta.env.VITE_BACKEND_URL;
     const userInfo = {
       fullname: data.fullname,
       email: data.email,
@@ -30,7 +31,7 @@ function Signup() {
     };
     // console.log(userInfo);
     await axios
-      .post("/api/user/signup", userInfo)
+      .post(`${backendUrl}/api/user/signup`, userInfo)
       .then((response) => {
         if (response.data) {
           toast.success("Signup successful");
